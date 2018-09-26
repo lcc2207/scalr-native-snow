@@ -1,5 +1,4 @@
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
-	// 	gs.info(request.body.dataString);
 	info = request.body.dataString;
 	update(info);
 })(request, response);
