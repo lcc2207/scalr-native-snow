@@ -1,4 +1,17 @@
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	var authkey = 'iOPDbDE8P5ccrmK0If16eiKTKB3wy2y6O1JX9jHd8RDLralpviiBdTEAxDTwhMqT';
+	var header = request.headers;
+	var scalr_sig = header['x-signature'];
+	var scalr_date = header['date'];
+ 	var date = gs.nowDateTime();
+	var diff = gs.dateDiff(gs.nowDateTime(), scalr_date, true);
+
+	if(diff > '300'){
+		return 403;
+	}
+
+	gs.info('running.....');
+
 	info = request.body.dataString;
 	update(info);
 })(request, response);
@@ -8,7 +21,7 @@ function update(info) {
 	var parser = new JSONParser();
 	var parsed = parser.parse(info);
 	var user = 'admin';
-	var password = 'xxxxx!';
+	var password = 'SuperScalr123!';
 	var snurl = 'https://dev64613.service-now.com/api/now/table/u_scalr_servers';
 	var obj = {"u_id": parsed.data.SCALR_SERVER_ID,
 		"u_status": parsed.eventName,
