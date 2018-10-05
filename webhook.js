@@ -1,5 +1,5 @@
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
-	var authkey = 'iOPDbDE8P5ccrmK0If16eiKTKB3wy2y6O1JX9jHd8RDLralpviiBdTEAxDTwhMqT';
+	var authkey = 'xxxxx';
 	var header = request.headers;
 	var scalr_sig = header['x-signature'];
 	var scalr_date = header['date'];
@@ -21,7 +21,7 @@ function update(info) {
 	var parser = new JSONParser();
 	var parsed = parser.parse(info);
 	var user = 'admin';
-	var password = 'SuperScalr123!';
+	var password = 'xxxx';
 	var snurl = 'https://dev64613.service-now.com/api/now/table/u_scalr_servers';
 	var obj = {"u_id": parsed.data.SCALR_SERVER_ID,
 		"u_status": parsed.eventName,
